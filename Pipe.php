@@ -25,10 +25,13 @@ const FMP = 'FileMakerPro';
 const FMS = 'FileMakerServer';
 const PGS = 'PostgreSQL';
 const MYS = 'MySQL';
+const ELK = 'elasticsearch';
+const RDS = 'REDIS';
+
 
 class Pipe
 {
-    const VERSION = '0.1.0';
+    const VERSION = '0.0.1';
 
     private $dataSource;
 
