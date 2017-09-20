@@ -26,6 +26,7 @@ const FMS = 'FileMakerServer';
 const PGS = 'PostgreSQL';
 const MYS = 'MySQL';
 const ELK = 'elasticsearch';
+const RDS = 'REDIS';
 
 
 class Pipe
