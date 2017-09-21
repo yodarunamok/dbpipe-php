@@ -37,6 +37,7 @@ class Pipe
 
     public function __construct($sourceType)
     {
+        $sourceType = "Connector\\{$sourceType}";
         $this->dataSource = new $sourceType;
     }
 
