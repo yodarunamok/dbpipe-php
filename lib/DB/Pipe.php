@@ -19,13 +19,13 @@
  * limitations under the License.
  */
 
-namespace DB;
+namespace db;
 
 const FMP = 'FileMakerPro';
 const FMS = 'FileMakerServer';
 const PGS = 'PostgreSQL';
 const MYS = 'MySQL';
-const ELK = 'elasticsearch';
+const ELK = 'Elasticsearch';
 const RDS = 'REDIS';
 
 
