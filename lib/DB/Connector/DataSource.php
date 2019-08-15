@@ -1,5 +1,5 @@
 <?php
-namespace DB\Connector;
+namespace db\connector;
 
 abstract class DataSource
 {
