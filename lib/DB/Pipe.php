@@ -2,8 +2,9 @@
 /**
  * Created by IntelliJ IDEA.
  * User: Chris Hansen (chris@iviking.org)
+ * User: Gjermund G Thorsen( !ghuser TyrfingMjolnir )
  * Date: 9/13/17
- * 
+ *
  * Copyright 2017 Chris Hansen
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -11,7 +12,7 @@
  * You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -19,15 +20,7 @@
  * limitations under the License.
  */
 
-namespace db;
-
-const FMP = 'FileMakerPro';
-const FMS = 'FileMakerServer';
-const PGS = 'PostgreSQL';
-const MYS = 'MySQL';
-const ELK = 'Elasticsearch';
-const RDS = 'REDIS';
-
+namespace DB;
 
 class Pipe
 {
@@ -37,13 +30,12 @@ class Pipe
 
     public function __construct($sourceType)
     {
-        $sourceType = "Connector\\{$sourceType}";
         $this->dataSource = new $sourceType;
     }
 
     /**
      * Returns version information.
-     * 
+     *
      * @return string
      */
     public function __toString()
@@ -65,26 +57,43 @@ class Pipe
 
     public function query($paramArray)
     {
+        // TODO: Implement validation of timestamp; and unset() when invalid to enforce renewal of login.
         // TODO: Implement query method
         // TODO: determine how to handle logical operators and multiple requests
     }
 
-    public function find()
-    {
-        // TODO: Implement find method
+    // CRUOUx implementation below; Create, Read, Update, Overwrite, Update mark for deletion.
+
+    private function currentToken(){
+        // TODO: Implement temporary storage for timestamp and current token
     }
 
-    public function insert()
+    public function create() // insert payload
     {
         // TODO: Implement insert method
     }
 
-    public function update()
+    public function read() // find resource at id or at random
     {
-        // TODO: Implement update method
+        // TODO: Implement find method
     }
 
-    public function delete()
+    public function update()
+    {
+        // TODO: This should just be an alias (with a more newby friednly name) of (most likely) patch
+    }
+
+    public function patch() // overwrite value for key at ID according to payload
+    {
+        // TODO: Implement update/patch method
+    }
+
+    public function put() // overwrite resource at ID using payload, the tricky part here is that all keys not in payload will be emptied.
+    {
+        // TODO: Implement update/put method
+    }
+
+    public function delete() // delete resource at ID
     {
         // TODO: Implement delete method
     }
