@@ -23,13 +23,14 @@ Now to make it work... Heh!
 --Chris Hansen
 
 Initial thoughts on data sources to support:
+- PostgreSQL
 - FileMaker XML
 - FileMaker Data Design Report
 - FileMaker Data API
-- PostgreSQL
 - PostgreSQL native libpq
 - MySQL
 - Elasticsearch
 - Redis
+- ODBC
 
 (There will be a better README here eventually, but this at least expresses things better than the prior one.)
