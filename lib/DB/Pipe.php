@@ -40,7 +40,7 @@ class Pipe
      */
     public function __toString()
     {
-        return 'DB|.php version ' . self::VERSION;
+        return 'db|.php version ' . self::VERSION;
     }
 
     public function config($settingsArray)
