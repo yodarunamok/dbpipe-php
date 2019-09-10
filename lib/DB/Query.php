@@ -7,6 +7,7 @@ namespace DB;
 class Query
 {
     private $pipe;
+    private $parts = [];
 
     public function __construct()
     {
@@ -15,13 +16,17 @@ class Query
         }
     }
 
-    public function where()
+    public function &where($identifier)
     {
         // TODO: this is where much of the magic happens
+        $tempPart = new Query\Part($identifier);
+        $this->parts[] = $tempPart;
+        return $tempPart;
     }
 
     public function execute()
     {
-        // TODO: execute the query!
+        // TODO: execute the query! -- This should use the specified query language and parser to return data
+        return "data goes here";
     }
 }

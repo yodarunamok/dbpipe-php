@@ -23,14 +23,14 @@ Now to make it work... Heh!
 --Chris Hansen
 
 Initial thoughts on data sources to support:
-- PostgreSQL
+- PostgreSQL (this should give us CockroachDB for free)
 - FileMaker Data API
 - FileMaker XML
 - MySQL
-- PostgreSQL native libpq
 - Elasticsearch
 - Redis
 - ODBC
 - FileMaker Data Design Report
+- PostgreSQL native libpq
 
 (There will be a better README here eventually, but this at least expresses things better than the prior one.)
