@@ -11,19 +11,25 @@ other hand, it is somewhat ostentatious, so maybe others just have better sense.
 After mucking around a bit, the syntax I've come up with looks something like this:
 ```php
 <?php
-$query = new DB\Query();
+$query = new DB\Query("db_config.ini");
 $query->where("size")->equalTo("large");
 $query->where("color")->notEqualTo("red");
 $results = $query->execute();
 ```
 Beautiful, no?
 
+Some features of db|.php worth noting:
+
+- `.ini` files can be used for settings (PHP has some very powerful associated functionality.)
+- Query syntax makes sense without prior knowledge of the class.
+- In PHP arrays have some very powerful, object-like behavior; so that's leveraged where it makes sense.
+
 Now to make it work... Heh!
 
 --Chris Hansen
 
 Initial thoughts on data sources to support:
-- PostgreSQL (this should give us CockroachDB for free)
+- PostgreSQL (this should also give us CockroachDB for free)
 - FileMaker Data API
 - FileMaker XML
 - MySQL

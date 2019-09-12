@@ -8,11 +8,12 @@ class Query
 {
     private $pipe;
     private $parts = [];
+    private $errorState = 0;
 
-    public function __construct()
+    public function __construct($config)
     {
         if (!isset($this->pipe) || !($this->pipe instanceof Pipe)) {
-            $this->pipe = new Pipe();
+            $this->pipe = new Pipe($config);
         }
     }
 
