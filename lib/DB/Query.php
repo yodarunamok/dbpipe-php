@@ -4,7 +4,7 @@
 namespace DB;
 
 
-class Query
+abstract class Query
 {
     private $pipe;
     private $parts = [];
@@ -25,9 +25,5 @@ class Query
         return $tempPart;
     }
 
-    public function execute()
-    {
-        // TODO: execute the query! -- This should use the specified query language and parser to return data
-        return "data goes here";
-    }
+    abstract public function execute();
 }

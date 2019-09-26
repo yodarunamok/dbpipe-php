@@ -11,7 +11,7 @@ other hand, it is somewhat ostentatious, so maybe others just have better sense.
 After mucking around a bit, the syntax I've come up with looks something like this:
 ```php
 <?php
-$query = new DB\Query("db_config.ini");
+$query = new DB\FMX\Query("db_config.ini");
 $query->where("size")->equalTo("large");
 $query->where("color")->notEqualTo("red");
 $results = $query->execute();
@@ -29,14 +29,12 @@ Now to make it work... Heh!
 --Chris Hansen
 
 Initial thoughts on data sources to support:
-- PostgreSQL (this should also give us CockroachDB for free)
-- FileMaker Data API
-- FileMaker XML
-- MySQL
-- Elasticsearch
-- Redis
-- ODBC
-- FileMaker Data Design Report
-- PostgreSQL native libpq
-
-(There will be a better README here eventually, but this at least expresses things better than the prior one.)
+- `PGS` - PostgreSQL (this should also give us CockroachDB for free)
+- `FMD` - FileMaker Data API
+- `FMX` - FileMaker XML
+- `MYS` - MySQL
+- `ELS` - Elasticsearch
+- `RED` - Redis
+- `ODB` - ODBC
+- `DDR` - FileMaker Data Design Report (XML syntax)
+- `PGN` - PostgreSQL native libpq
