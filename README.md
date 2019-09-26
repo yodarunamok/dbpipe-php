@@ -25,10 +25,6 @@ Some features of db|.php worth noting:
 - Query syntax makes sense without prior knowledge of the class.
 - In PHP arrays have some very powerful, object-like behavior; so that's leveraged where it makes sense.
 
-Now to make it work... Heh!
-
---Chris Hansen
-
 Initial thoughts on data sources to support:
 - `PGS` - PostgreSQL (this should also give us CockroachDB for free)
 - `FMD` - FileMaker Data API
@@ -39,3 +35,7 @@ Initial thoughts on data sources to support:
 - `ODB` - ODBC
 - `DDR` - FileMaker Data Design Report (XML syntax)
 - `PGN` - PostgreSQL native libpq
+
+Now to make it work... Heh!
+
+--Chris Hansen
