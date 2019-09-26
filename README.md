@@ -20,6 +20,7 @@ Beautiful, no?
 
 Some features of db|.php worth noting:
 
+- The goal is true abstraction. (i.e. no special syntax for different data sources.)
 - `.ini` files can be used for settings (PHP has some very powerful associated functionality.)
 - Query syntax makes sense without prior knowledge of the class.
 - In PHP arrays have some very powerful, object-like behavior; so that's leveraged where it makes sense.
