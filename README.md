@@ -11,6 +11,9 @@ other hand, it is somewhat ostentatious, so maybe others just have better sense.
 After mucking around a bit, the syntax I've come up with looks something like this:
 ```php
 <?php
+// A couple notes:
+// - The FMX namespace indicates a FileMaker XML datasource
+// - The .ini file would contain the settings for your data sources
 $query = new DB\FMX\Query("db_config.ini");
 $query->where("size")->equalTo("large");
 $query->where("color")->notEqualTo("red");
