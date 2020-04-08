@@ -80,7 +80,7 @@ class Pipe
 
     public function update()
     {
-        // TODO: This should just be an alias (with a more newby friednly name) of (most likely) patch
+        // TODO: This should just be an alias (with a more newby friendly name) of (most likely) patch
     }
 
     public function patch() // overwrite value for key at ID according to payload

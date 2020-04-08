@@ -7,7 +7,7 @@ namespace DB;
 abstract class Query
 {
     private $pipe;
-    private $parts = [];
+    protected $parts = [];
     private $errorState = 0;
 
     public function __construct($config)
