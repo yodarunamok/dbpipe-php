@@ -22,8 +22,18 @@ for the JavaScript code in this file
 */
 var NAVTREE =
 [
-  [ "db|.php", "index.html", [
-    [ "dbp-php", "md__r_e_a_d_m_e.html", null ],
+  [ "dbPipe.php", "index.html", [
+    [ "Welcome!", "index.html", null ],
+    [ "Configuration", "md_src_configuration.html", [
+      [ "Configuration Files", "md_src_configuration.html#autotoc_md1", [
+        [ "Configuration Settings", "md_src_configuration.html#autotoc_md2", null ],
+        [ "Connection Agnostic Settings", "md_src_configuration.html#autotoc_md3", [
+          [ "address (required)", "md_src_configuration.html#autotoc_md4", null ],
+          [ "port (optional)", "md_src_configuration.html#autotoc_md5", null ]
+        ] ],
+        [ "FileMaker XML (FMX) Settings", "md_src_configuration.html#autotoc_md6", null ]
+      ] ]
+    ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ]
     ] ],

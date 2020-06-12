@@ -1,0 +1,22 @@
+\hypertarget{md_src_configuration_autotoc_md1}{}\doxysection{Configuration Files}\label{md_src_configuration_autotoc_md1}
+To minimize repetition on code, {\bfseries{db$\vert$.php}} uses {\ttfamily .ini} files to consolidation configuration information. In addition, because there\textquotesingle{}s a built in P\+HP function to parse these files, it should keep things fast. First off, a couple of general notes about configuration files\+:
+
+
+\begin{DoxyEnumerate}
+\item Whenever possible, configuration files should be stored outside of your web server\textquotesingle{}s document root. When a file is below the document root, there\textquotesingle{}s always the possibility that something will happen and the file containing all of the information needed to access your database will be available to the internet at large. Not pretty. To that end, the built in {\ttfamily phpinfo()} function can be used to review your server\textquotesingle{}s {\ttfamily I\+N\+C\+L\+U\+D\+E\+\_\+\+P\+A\+TH} settings. Generally, there\textquotesingle{}s at least one path in there that is completely outside of the document root, making it a good place for sensitive files.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item If you must keep your configuration files in a sub-\/optimal spot, be sure to follow the example of {\ttfamily config\+\_\+template.\+ini.\+php}. First, the file is formatted so as to be {\bfseries{both}} a valid {\ttfamily P\+HP} file, {\itshape and} a valid {\ttfamily .ini} file. As long as your server is properly handling {\ttfamily P\+HP} files, a person who attempts to access a config file will see nothing important. That said, option one is far preferable.
+\end{DoxyEnumerate}\hypertarget{md_src_configuration_autotoc_md2}{}\doxysubsection{Configuration Settings}\label{md_src_configuration_autotoc_md2}
+Available settings are outlined below. Each setting is marked as one of two types\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily required} \+: All connections require these settings. If you leave one of these out of a data source block, you\textquotesingle{}ll just see an error.
+\item {\ttfamily optional} \+: If one of these settings is omitted, db\+Pipe will attempt to make an intelligent guess based on standards for the data source.
+\end{DoxyItemize}
+
+\hypertarget{md_src_configuration_autotoc_md3}{}\doxysubsection{Connection Agnostic Settings}\label{md_src_configuration_autotoc_md3}
+These are settings which are relevant to all supported data sources.\hypertarget{md_src_configuration_autotoc_md4}{}\doxysubsubsection{address (required)}\label{md_src_configuration_autotoc_md4}
+The address of the data source. This can be either an IP address (e.\+g. 192.\+168.\+1.\+7) or a D\+NS address (e.\+g. mydata.\+mydomain.\+com)\hypertarget{md_src_configuration_autotoc_md5}{}\doxysubsubsection{port (optional)}\label{md_src_configuration_autotoc_md5}
+The port at which the data source may be reached. Usually and integer; see specific data source sections for any exceptions.\hypertarget{md_src_configuration_autotoc_md6}{}\doxysubsection{File\+Maker X\+M\+L (\+F\+M\+X) Settings}\label{md_src_configuration_autotoc_md6}

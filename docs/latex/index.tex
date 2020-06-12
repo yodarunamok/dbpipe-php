@@ -1,0 +1,47 @@
+For some time now I\textquotesingle{}ve wanted a really powerful database abstraction class. Though there are quite a few options out there, all of the ones that I looked at fell short for me\+: either they didn\textquotesingle{}t seem truly abstract (e.\+g. connections to Postgre\+S\+QL are done with one syntax, My\+S\+QL connections with another), a data source that I wanted was missing, or the syntax was overly complicated. My first stab at this grew from my first ever P\+HP project and is called F\+X.\+php. However, being my first P\+HP project, it\textquotesingle{}s not really as well designed as it could be -- it could be both more streamlined and easier to use.
+
+Rather than trying to cram all of my learning into that project, my thought was to create something new. Enter db$\vert$.php (read as \char`\"{}\+D B pipe dot P H P\char`\"{}). The name feels so perfect, I was surprised that no one seemed to have used it. On the other hand, it {\itshape is} somewhat ostentatious, so maybe others just have better sense.
+
+After mucking around a bit, the syntax I\textquotesingle{}ve come up with looks something like this\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<?php}
+\DoxyCodeLine{\textcolor{comment}{// A couple notes:}}
+\DoxyCodeLine{\textcolor{comment}{// -\/ The FMX namespace indicates a FileMaker XML datasource}}
+\DoxyCodeLine{\textcolor{comment}{// -\/ The "products" parameter is the table (layout for FileMaker) to be queried}}
+\DoxyCodeLine{\textcolor{comment}{// -\/ The .ini file would contain the settings for your data sources}}
+\DoxyCodeLine{\$query = \textcolor{keyword}{new} \mbox{\hyperlink{class_d_b_1_1_f_m_x_1_1_query}{DB\(\backslash\)FMX\(\backslash\)Query}}(\textcolor{stringliteral}{"products"});}
+\DoxyCodeLine{\$query-\/>configure(\textcolor{stringliteral}{"db\_config.ini"});}
+\DoxyCodeLine{\$query-\/>where(\textcolor{stringliteral}{"size"})-\/>equalTo(\textcolor{stringliteral}{"large"});}
+\DoxyCodeLine{\$query-\/>where(\textcolor{stringliteral}{"color"})-\/>notEqualTo(\textcolor{stringliteral}{"red"});}
+\DoxyCodeLine{\$results = \$query-\/>execute();}
+\end{DoxyCode}
+
+
+Beautiful, no?
+
+Some features of db$\vert$.php worth noting\+:
+
+
+\begin{DoxyItemize}
+\item The goal is true abstraction. (i.\+e. no special syntax for different data sources.)
+\item {\ttfamily .ini} files can be used for settings (P\+HP has some very powerful associated functionality.)
+\item Query syntax makes sense without prior knowledge of the class.
+\item In P\+HP arrays have some very powerful, object-\/like behavior; so that\textquotesingle{}s leveraged where it makes sense.
+\end{DoxyItemize}
+
+Initial thoughts on data sources to support\+:
+\begin{DoxyItemize}
+\item {\ttfamily P\+GS} -\/ Postgre\+S\+QL (this should also give us Cockroach\+DB for free)
+\item {\ttfamily F\+MD} -\/ File\+Maker Data A\+PI
+\item {\ttfamily F\+MX} -\/ File\+Maker X\+ML
+\item {\ttfamily M\+YS} -\/ My\+S\+QL
+\item {\ttfamily E\+LS} -\/ Elasticsearch
+\item {\ttfamily R\+ED} -\/ Redis
+\item {\ttfamily O\+DB} -\/ O\+D\+BC
+\item {\ttfamily D\+DR} -\/ File\+Maker Data Design Report (X\+ML syntax)
+\item {\ttfamily P\+GN} -\/ Postgre\+S\+QL native libpq
+\end{DoxyItemize}
+
+Now to make it work... Heh!
+
+--Chris Hansen 
