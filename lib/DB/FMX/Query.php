@@ -8,7 +8,12 @@ class Query extends \DB\Query
 {
 	const OPS = ["=="=>"eq", "!="=>"neq", ">"=>"gt", ">="=>"gte", "<"=>"lt", "<="=>"lte", "%%"=>"cn", "%."=>"bw", ".%"=>"ew"];
 
-    public function execute()
+	public function __construct($tableName, $config = false, $sourceIdentifier = "FMX")
+	{
+		parent::__construct($tableName, $config, $sourceIdentifier);
+	}
+
+	public function execute()
     {
     	$queryString = "";
     	// TODO: what to do about an empty query?
