@@ -12,6 +12,6 @@ Icon
 
 ### IDE items
 .idea/
-dbp-php.iml
+*.iml
 
 ### Project Specific Items
