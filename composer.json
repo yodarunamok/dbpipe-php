@@ -1,0 +1,8 @@
+{
+  "name": "db/Pipe",
+  "autoload": {
+    "psr-4" : {
+      "db\\" : "lib"
+    }
+  }
+}

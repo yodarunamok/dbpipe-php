@@ -1,0 +1,17 @@
+### macOS template
+# General
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+### IDE items
+.idea/
+dbp-php.iml
+
+### Project Specific Items
