@@ -6,7 +6,7 @@
  * Time: 4:05 PM
  */
 
-namespace dbpipe;
+namespace dbpipe\Foundry;
 
 use dbpipe\Foundry\Traits\FindDataValues;
 

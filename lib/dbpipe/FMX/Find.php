@@ -2,10 +2,9 @@
 
 namespace dbpipe\FMX;
 
-use dbpipe\Foundry\Query;
 use dbpipe\Foundry\QueryPart;
 
-class Find extends Query
+class Find extends \dbpipe\Foundry\Find
 {
     const OPS = ["=="=>"eq", "!="=>"neq", ">"=>"gt", ">="=>"gte", "<"=>"lt", "<="=>"lte", "%%"=>"cn", "%."=>"bw", ".%"=>"ew"];
 
@@ -33,8 +32,4 @@ class Find extends Query
         return "data goes here";
     }
 
-    public function where($fieldName): QueryPart
-    {
-        // TODO: Implement where() method.
-    }
 }
