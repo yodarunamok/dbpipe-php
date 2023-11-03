@@ -27,8 +27,6 @@ abstract class Query
             trigger_error("Internal db|.php error. Invalid source identifier ($this->sourceIdentifier) specified.", E_USER_ERROR);
         }
     }
-
-    abstract public function where($fieldName):QueryPart;
-
+    
     abstract public function execute();
 }
