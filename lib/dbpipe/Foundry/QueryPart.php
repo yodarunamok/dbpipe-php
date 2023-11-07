@@ -1,7 +1,7 @@
 <?php
 namespace dbpipe\Foundry;
 
-abstract class QueryPart
+class QueryPart
 {
     private $key;
     private $operator;

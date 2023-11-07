@@ -8,6 +8,7 @@
  */
 
 namespace dbpipe\Foundry\Traits;
+use \dbpipe\Foundry\QueryPart;
 
 trait FindDataValues
 {
@@ -15,11 +16,11 @@ trait FindDataValues
 
     /**
      * @param $identifier
-     * @return Query\Part
+     * @return QueryPart
      */
-    public function where($identifier)
+    public function where($identifier): QueryPart
     {
-        $tempPart = new Query\Part($identifier);
+        $tempPart = new QueryPart($identifier);
         $this->parts[] = $tempPart;
         return $tempPart;
     }
