@@ -7,10 +7,11 @@ use dbpipe\Foundry\QueryPart;
 class Find extends \dbpipe\Foundry\Find
 {
     const OPS = ["=="=>"eq", "!="=>"neq", ">"=>"gt", ">="=>"gte", "<"=>"lt", "<="=>"lte", "%%"=>"cn", "%."=>"bw", ".%"=>"ew"];
+    protected $sourceIdentifier = "FMX";
 
-    public function __construct($tableName, $config = false, $sourceIdentifier = "FMX")
+    public function __construct($tableName, $config = false)
     {
-        parent::__construct($tableName, $config, $sourceIdentifier);
+        parent::__construct($tableName, $config);
     }
 
     public function execute()
