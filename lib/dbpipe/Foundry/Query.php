@@ -25,7 +25,7 @@ abstract class Query
     public function __construct($tableName, $config)
     {
         // TODO: add spl_autoload_register() call as appropriate -- may or may not be here
-        set_error_handler(array('dbpipe\Foundry', "handleError"), self::ERRS_HANDLED);
+        set_error_handler(array($this, "handleError"), self::ERRS_HANDLED);
 
         $this->tableName = $tableName;
         // Now let's process the configuration passed
@@ -37,7 +37,7 @@ abstract class Query
                 // TODO: is this the best way to handle this, or should we return an error to the user?
                 trigger_error("Invalid config file path specified ($config)", E_USER_ERROR);
             } else {
-                $this->fittings = $result;
+                $this->config = $result;
             }
         } else {
             if (is_object($config)) {

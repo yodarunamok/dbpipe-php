@@ -3,25 +3,25 @@ namespace dbpipe\Foundry;
 
 class QueryPart
 {
-    private $key;
+    private $identifier;
     private $operator;
     private $value;
 
     public function __construct($identifier)
     {
-        $this->key = $identifier;
+        $this->identifier = $identifier;
     }
 
     public function __toString()
     {
-        return "$this->key $this->operator $this->value";
+        return "$this->identifier $this->operator $this->value";
     }
 
     public function __get($name)
     {
-        $availableAttributes = ["key", "operator", "value"];
+        $availableAttributes = ["identifier", "operator", "value"];
         if (!in_array($name, $availableAttributes)) {
-            trigger_error(E_USER_ERROR, "Unknown or unavailable query part attribute requested ($name)");
+            trigger_error("Unknown or unavailable query part attribute requested ($name)", E_USER_ERROR);
             return null;
         }
         return $this->$name;

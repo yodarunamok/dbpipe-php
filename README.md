@@ -48,4 +48,6 @@ Initial thoughts on data sources to support:
 
 Now to make it work... Heh!
 
+Requires PHP 7.2 or later.
+
 --Chris Hansen

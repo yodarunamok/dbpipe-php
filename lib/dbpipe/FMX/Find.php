@@ -21,9 +21,10 @@ class Find extends \dbpipe\Foundry\Find
             // as long as we've got a good operator, append the data to the query string accordingly
             if (isset(self::OPS[$queryPart->operator])) {
                 $fieldName = urlencode($queryPart->identifier);
-                $queryString .= "{$fieldName}={$queryPart->data}&{$fieldName}.op=" . self::OPS[$queryPart->operator] . "&";
+                $fieldValue = urlencode($queryPart->value);
+                $queryString .= "{$fieldName}={$fieldValue}&{$fieldName}.op=" . self::OPS[$queryPart->operator] . "&";
             } else {
-                trigger_error(E_USER_ERROR, "Invalid operator specified (" . (string)$queryPart . ")");
+                trigger_error("Invalid operator specified (" . (string)$queryPart . ")", E_USER_ERROR);
             }
         }
         // TODO: add any remaining query logic here
