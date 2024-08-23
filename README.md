@@ -1,6 +1,6 @@
 # Welcome!
 
-Are you unsatisfied with the available options to connect to databases using PHP? Me too.
+Are you unsatisfied with the available options to connect to databases? Me too.
 
 For some time now I've wanted a really powerful database abstraction class. Though there are quite a few options out
 there, all of the ones that I looked at fell short for me: either they didn't seem truly abstract (e.g. connections to
@@ -20,8 +20,8 @@ After mucking around a bit, the syntax I've come up with looks something like th
 // - The FMX namespace indicates a FileMaker XML datasource
 // - The "products" parameter is the table (layout for FileMaker) to be queried
 // - The .ini file would contain the settings for your data sources
-$config = dbpipe\Config::load("my_db_configurations.ini");
-$query = new dbpipe\FMX\Find("products", $config);
+$configPath = "/path/to/file/my_db_configurations.ini";
+$query = new dbpipe\FMX\Find("products", $configPath);
 $query->where("size")->equalTo("large");
 $query->where("color")->notEqualTo("red");
 $results = $query->execute();
@@ -46,8 +46,38 @@ Initial thoughts on data sources to support:
 - `DDR` - FileMaker Data Design Report (XML syntax)
 - `PGN` - PostgreSQL native libpq
 
-Now to make it work... Heh!
+So far, things are go slowing, but they're moving along. I hope this can be a tool that benefits a lot of people. Enjoy!
+
+--Chris Hansen
+
+## Getting Started
 
 Requires PHP 7.2 or later.
 
---Chris Hansen
+### Configuration Directives
+
+The available configuration directives are laid out below. There is a table just below these to lay out which directives are used by which data sources.
+
+server
+: The address of the database you wish to access. This may be an IP address, or a web address.
+
+port
+: The port on which the database listens. Often times there is a default, and this is optional.
+
+id
+: For many databases this would be a username, but as there are wrinkles in how this is handled, I thought it made some sense to use a recognizable, but slightly more generic word.
+
+secret
+: Similar to the preceding parameter, for many databases this would be a password. But again, there can be some variation, so I'm using a slightly more generic word.
+
+protocol
+: Some databases can be connected to both via http and https, for example. Where such distinctions exist, this parameter is where the desired option is set.
+
+|              | PGS | FMD | FMX |
+|:-------------|:---:|:---:|:---:|
+| **server**   |  X  |  X  |  X  |
+| **port**     |  X  |  X  |  X  |
+| **id**       |  X  |  X  |  X  |
+| **secret**   |  X  |  X  |  X  |
+| **protocol** |     |     |  X  |
+

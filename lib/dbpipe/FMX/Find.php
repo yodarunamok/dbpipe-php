@@ -8,12 +8,7 @@ class Find extends \dbpipe\Foundry\Find
 {
     const OPS = ["=="=>"eq", "!="=>"neq", ">"=>"gt", ">="=>"gte", "<"=>"lt", "<="=>"lte", "%%"=>"cn", "%."=>"bw", ".%"=>"ew"];
     protected $sourceIdentifier = "FMX";
-
-    public function __construct($tableName, $config = false)
-    {
-        parent::__construct($tableName, $config);
-    }
-
+    
     public function execute()
     {
         $queryString = "";
@@ -27,7 +22,8 @@ class Find extends \dbpipe\Foundry\Find
                 trigger_error("Invalid operator specified (" . (string)$queryPart . ")", E_USER_ERROR);
             }
         }
-        // TODO: add any remaining query logic here
+        // Add any remaining query logic here
+        $queryString .= "-find";
         // TODO: send the query
         // TODO: process the response
         // TODO: if we've got good data, build it into the standard format
